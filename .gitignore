@@ -19,6 +19,7 @@ ENV/
 # Uploads & Temp files
 Backend/uploads/
 uploads/
+*.zip
 
 # IDE / Editor settings
 .vscode/

@@ -1,5 +1,5 @@
 # 🍲 SHERO-NourishNet
-> **AI-Driven Surplus Food Waste Prediction & Intelligent Redistribution Platform**
+> **AI-Driven Surplus Food Waste Prediction & Intelligent Redistribution Platform API**
 
 SHERO-NourishNet is an AI-powered platform designed to combat urban food waste and reduce hunger by connecting food donors (restaurants, event organizers, households) with nearby NGOs and volunteers for rapid, efficient surplus food redistribution.
 
@@ -11,11 +11,11 @@ SHERO-NourishNet is an AI-powered platform designed to combat urban food waste a
 - **🔍 AI Food Quality & Safety Assessment**: Automated visual/sensor inspection heuristics to rate freshness and safety before redistribution.
 - **⚡ Smart Matching Algorithm**: Matches surplus food listings with nearby NGOs based on distance, quantity needed, urgency, and food preferences.
 - **🚚 Real-time Delivery & Logistics Tracking**: Tracks pickup, dispatch, and delivery milestones with assigned volunteer drivers.
-- **👥 Multi-Role Interactive Portals**:
-  - **Donor Dashboard**: List surplus food, view AI predictions, track donation history.
-  - **NGO Dashboard**: Request food, receive matched donations, accept deliveries.
-  - **Volunteer Dashboard**: Accept delivery routes, update live order status.
-  - **Admin Panel**: Monitor platform metrics, user verification, system logs, and analytical reports.
+- **👥 Multi-Role Backend API Support**:
+  - **Donor Service**: List surplus food, view AI predictions, track donation history.
+  - **NGO Service**: Request food, receive matched donations, accept deliveries.
+  - **Volunteer Service**: Accept delivery routes, update live order status.
+  - **Admin Service**: Monitor platform metrics, user verification, system logs, and analytical reports.
 - **⭐ Feedback & Rating System**: Ensures quality standards and accountability across all parties.
 
 ---
@@ -24,7 +24,6 @@ SHERO-NourishNet is an AI-powered platform designed to combat urban food waste a
 
 | Layer | Technologies |
 | :--- | :--- |
-| **Frontend** | HTML5, Modern CSS3, JavaScript (ES6+), Fetch API |
 | **Backend** | Python 3.x, Flask (RESTful Blueprints API), CORS, Werkzeug |
 | **Database** | MySQL 8.x (Relational Database) |
 | **AI / ML** | Python Scikit-Learn (Random Forest Pipeline), Computer Vision heuristics |
@@ -75,22 +74,6 @@ SHERO-NourishNet/
 │       ├── matching.py
 │       └── safety.py
 │
-├── FrontEnd/
-│   ├── index.html                  # Landing Page & Portal Overview
-│   ├── donor.html                  # Donor Management Dashboard
-│   ├── ngo.html                    # NGO Request & Receiver Dashboard
-│   ├── volunteer.html              # Volunteer Driver Dashboard
-│   ├── admin.html                  # System Administration Console
-│   ├── css/
-│   │   └── style.css               # Main Stylesheet
-│   └── js/                         # Frontend Controllers & Config
-│       ├── config.js
-│       ├── auth.js
-│       ├── donor.js
-│       ├── ngo.js
-│       ├── volunteer.js
-│       └── admin.js
-│
 ├── .gitignore                      # Git Exclusions File
 └── README.md                       # Project Documentation
 ```
@@ -103,7 +86,6 @@ SHERO-NourishNet/
 
 - **Python**: Version 3.9+
 - **MySQL**: MySQL Server 8.0+ running locally or on a remote server
-- **Web Browser**: Chrome, Edge, or Firefox
 
 ---
 
@@ -161,14 +143,6 @@ SHERO-NourishNet/
    python app.py
    ```
    The backend server will run at `http://localhost:5000`.
-
----
-
-### 3. Frontend Setup
-
-1. Open the `FrontEnd` folder.
-2. Open `index.html` in any browser, or use Live Server in VS Code.
-3. Configure API host URL in `FrontEnd/js/config.js` if running backend on a custom host/port.
 
 ---
 
