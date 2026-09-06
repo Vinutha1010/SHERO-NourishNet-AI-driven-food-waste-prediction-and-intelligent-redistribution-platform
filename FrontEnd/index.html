@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SHERO-NourishNet | AI-Driven Food Waste Redistribution System</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <!-- Header Navbar -->
+    <nav class="navbar">
+        <a href="index.html" class="brand">
+            🌱 SHERO-<span>NourishNet</span>
+        </a>
+        <div>
+            <button class="btn btn-secondary" onclick="switchTab('login')">Sign In</button>
+            <button class="btn btn-primary" onclick="switchTab('register')">Get Started</button>
+        </div>
+    </nav>
+
+    <!-- Main Content Container -->
+    <div class="container">
+
+        <!-- Hero Section -->
+        <div style="text-align: center; margin-bottom: 2.5rem;">
+            <h1 style="font-size: 2.8rem; font-weight: 800; margin-bottom: 0.75rem; background: linear-gradient(135deg, #fff, #94a3b8); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
+                AI-Driven Food Waste Prediction & Redistribution System
+            </h1>
+            <p style="color: var(--text-muted); font-size: 1.1rem; max-width: 750px; margin: 0 auto 1.5rem;">
+                Connecting Donors, NGOs, and Volunteers using Haversine Donor-NGO Matching, Rule-Based Food Safety Checks, and Real-Time GPS Tracking.
+            </p>
+        </div>
+
+        <div id="authAlert" class="alert" style="display: none; max-width: 550px; margin: 0 auto 1.5rem;"></div>
+
+        <!-- Auth Section -->
+        <div class="card" style="max-width: 550px; margin: 0 auto;">
+            <div style="display: flex; gap: 10px; margin-bottom: 1.5rem;">
+                <button id="tabLogin" class="btn btn-primary" style="flex: 1;" onclick="switchTab('login')">Sign In</button>
+                <button id="tabRegister" class="btn btn-secondary" style="flex: 1;" onclick="switchTab('register')">Register Account</button>
+            </div>
+
+            <!-- Login Form -->
+            <div id="loginBox">
+                <div class="card-header">
+                    <h2 class="card-title">Account Login</h2>
+                </div>
+                <form id="loginForm">
+                    <div class="form-group">
+                        <label for="login_email">Email Address</label>
+                        <input type="email" id="login_email" class="form-control" placeholder="name@example.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="login_password">Password</label>
+                        <input type="password" id="login_password" class="form-control" placeholder="••••••••" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary" style="width: 100%;">Sign In</button>
+                </form>
+            </div>
+
+            <!-- Register Form -->
+            <div id="registerBox" style="display: none;">
+                <div class="card-header">
+                    <h2 class="card-title">Create New Account</h2>
+                </div>
+                <form id="registerForm">
+                    <div class="form-group">
+                        <label for="reg_name">Full Name / Organization Name</label>
+                        <input type="text" id="reg_name" class="form-control" placeholder="Green Palace Hotel or Hope Foundation" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="reg_email">Email Address</label>
+                        <input type="email" id="reg_email" class="form-control" placeholder="contact@domain.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="reg_password">Password</label>
+                        <input type="password" id="reg_password" class="form-control" placeholder="At least 6 characters" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="reg_phone">Phone Number</label>
+                        <input type="tel" id="reg_phone" class="form-control" placeholder="9876543210" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="reg_role">Account Role</label>
+                        <select id="reg_role" class="form-control" required>
+                            <option value="DONOR">DONOR (Restaurants, Hotels, Event Organizers)</option>
+                            <option value="NGO">NGO (Charity, Food Bank, Shelter)</option>
+                            <option value="VOLUNTEER">VOLUNTEER (Delivery Partner)</option>
+                            <option value="ADMIN">ADMIN (System Administrator)</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="reg_address">Location Address</label>
+                        <input type="text" id="reg_address" class="form-control" placeholder="123 MG Road, Bengaluru" required>
+                    </div>
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;" class="form-group">
+                        <div>
+                            <label for="reg_lat">Latitude</label>
+                            <input type="number" step="any" id="reg_lat" class="form-control" value="12.9716">
+                        </div>
+                        <div>
+                            <label for="reg_lng">Longitude</label>
+                            <input type="number" step="any" id="reg_lng" class="form-control" value="77.5946">
+                        </div>
+                    </div>
+                    <button type="button" class="btn btn-secondary" style="width: 100%; margin-bottom: 1rem;" onclick="getGPSLocation()">📍 Fetch GPS Location</button>
+                    <button type="submit" class="btn btn-primary" style="width: 100%;">Register Account</button>
+                </form>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>SHERO-NourishNet &copy; 2026 | AI-Driven Food Waste Redistribution Project</p>
+    </footer>
+
+    <script src="js/config.js"></script>
+    <script src="js/auth.js"></script>
+</body>
+</html>

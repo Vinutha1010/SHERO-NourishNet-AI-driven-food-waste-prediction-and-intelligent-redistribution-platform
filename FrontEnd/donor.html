@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Donor Portal | SHERO-NourishNet</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <a href="donor.html" class="brand">🌱 SHERO-<span>NourishNet</span></a>
+        <div class="nav-user">
+            <span id="userName" style="font-weight: 600;">Donor</span>
+            <span class="role-badge">DONOR</span>
+            <button class="btn-logout" onclick="logout()">Sign Out</button>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div id="donorAlert" class="alert" style="display: none;"></div>
+
+        <div style="display: grid; grid-template-columns: 1fr 2fr; gap: 1.5rem;">
+            
+            <!-- Add Food Form -->
+            <div class="card">
+                <div class="card-header">
+                    <h2 class="card-title">🍲 Add Surplus Food</h2>
+                </div>
+                <form id="addFoodForm">
+                    <div class="form-group">
+                        <label for="food_name">Food Description / Name</label>
+                        <input type="text" id="food_name" class="form-control" placeholder="e.g. Vegetable Biryani & Paneer Gravy" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="food_type">Food Category</label>
+                        <select id="food_type" class="form-control">
+                            <option value="Cooked Meals">Cooked Meals</option>
+                            <option value="Bakery & Snacks">Bakery & Snacks</option>
+                            <option value="Raw Grains & Groceries">Raw Grains & Groceries</option>
+                            <option value="Beverages & Dairy">Beverages & Dairy</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="quantity">Quantity (in kg or meals)</label>
+                        <input type="number" step="any" id="quantity" class="form-control" placeholder="50" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="prepared_time">Preparation Time</label>
+                        <input type="datetime-local" id="prepared_time" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="expiry_time">Expected Expiry Time</label>
+                        <input type="datetime-local" id="expiry_time" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="storage_condition">Storage Instruction</label>
+                        <select id="storage_condition" class="form-control">
+                            <option value="ROOM_TEMP">Room Temperature</option>
+                            <option value="REFRIGERATED">Refrigerated</option>
+                            <option value="HOT_HOLDING">Hot Holding Container</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn btn-primary" style="width: 100%;">Post Surplus Food Listing</button>
+                </form>
+            </div>
+
+            <!-- Manage Listings & Incoming Requests -->
+            <div style="display: flex; flex-direction: column; gap: 1.5rem;">
+                
+                <!-- Incoming Requests -->
+                <div class="card">
+                    <div class="card-header">
+                        <h2 class="card-title">📩 Incoming NGO Requests</h2>
+                    </div>
+                    <div class="table-container">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Req ID</th>
+                                    <th>Food Item</th>
+                                    <th>NGO Contact</th>
+                                    <th>Requested Qty</th>
+                                    <th>Status</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody id="donorRequestsTable">
+                                <tr><td colspan="6" style="text-align: center;">Loading requests...</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- My Listed Surplus Food -->
+                <div class="card">
+                    <div class="card-header">
+                        <h2 class="card-title">📦 My Listed Surplus Food</h2>
+                    </div>
+                    <div class="table-container">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Food Item</th>
+                                    <th>Category</th>
+                                    <th>Quantity</th>
+                                    <th>Expiry Time</th>
+                                    <th>Status</th>
+                                </tr>
+                            </thead>
+                            <tbody id="donorFoodTable">
+                                <tr><td colspan="6" style="text-align: center;">Loading listings...</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+    <script src="js/config.js"></script>
+    <script src="js/donor.js"></script>
+</body>
+</html>

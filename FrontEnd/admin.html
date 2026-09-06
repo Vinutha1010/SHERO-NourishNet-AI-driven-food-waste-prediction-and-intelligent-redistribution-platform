@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard | SHERO-NourishNet</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <a href="admin.html" class="brand">🌱 SHERO-<span>NourishNet</span></a>
+        <div class="nav-user">
+            <span id="userName" style="font-weight: 600;">System Administrator</span>
+            <span class="role-badge" style="background: rgba(239, 68, 68, 0.2); color: #f87171; border-color: rgba(239, 68, 68, 0.3);">ADMIN</span>
+            <button class="btn-logout" onclick="logout()">Sign Out</button>
+        </div>
+    </nav>
+
+    <div class="container">
+        
+        <!-- System Analytics Metrics Banner -->
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.2rem; margin-bottom: 2rem;">
+            <div class="stat-box">
+                <div id="statFoodListings" class="stat-number">0</div>
+                <div class="stat-label">Total Food Items</div>
+            </div>
+            <div class="stat-box">
+                <div id="statFoodQty" class="stat-number">0 kg</div>
+                <div class="stat-label">Total Food Saved</div>
+            </div>
+            <div class="stat-box">
+                <div id="statDeliveries" class="stat-number">0</div>
+                <div class="stat-label">Completed Deliveries</div>
+            </div>
+            <div class="stat-box">
+                <div id="statRating" class="stat-number">5.0 ★</div>
+                <div class="stat-label">Average User Rating</div>
+            </div>
+        </div>
+
+        <!-- Master Data Tables -->
+        <div style="display: flex; flex-direction: column; gap: 2rem;">
+            
+            <!-- Users Master Table -->
+            <div class="card">
+                <div class="card-header">
+                    <h2 class="card-title">👥 Registered Users Master Table</h2>
+                </div>
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>User ID</th>
+                                <th>Name</th>
+                                <th>Email</th>
+                                <th>Phone</th>
+                                <th>Role</th>
+                                <th>Address</th>
+                            </tr>
+                        </thead>
+                        <tbody id="adminUsersTable">
+                            <tr><td colspan="6" style="text-align: center;">Loading users...</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Food Items Master Table -->
+            <div class="card">
+                <div class="card-header">
+                    <h2 class="card-title">🍲 Surplus Food Master Table</h2>
+                </div>
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Food ID</th>
+                                <th>Food Name</th>
+                                <th>Donor</th>
+                                <th>Quantity</th>
+                                <th>Expiry Time</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody id="adminFoodTable">
+                            <tr><td colspan="6" style="text-align: center;">Loading food listings...</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Requests Master Table -->
+            <div class="card">
+                <div class="card-header">
+                    <h2 class="card-title">📋 Food Requests Master Table</h2>
+                </div>
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Req ID</th>
+                                <th>Food Name</th>
+                                <th>NGO Name</th>
+                                <th>Donor Name</th>
+                                <th>Requested Qty</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody id="adminRequestsTable">
+                            <tr><td colspan="6" style="text-align: center;">Loading requests...</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Deliveries Master Table -->
+            <div class="card">
+                <div class="card-header">
+                    <h2 class="card-title">🛵 Deliveries Master Table</h2>
+                </div>
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Delivery ID</th>
+                                <th>Food Name</th>
+                                <th>Volunteer</th>
+                                <th>Route</th>
+                                <th>Status</th>
+                                <th>Started At</th>
+                            </tr>
+                        </thead>
+                        <tbody id="adminDeliveriesTable">
+                            <tr><td colspan="6" style="text-align: center;">Loading deliveries...</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+    <script src="js/config.js"></script>
+    <script src="js/admin.js"></script>
+</body>
+</html>

@@ -1,0 +1,26 @@
+# Environment variables
+.env
+Backend/.env
+*.env
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+env/
+venv/
+.venv/
+ENV/
+*.db
+*.sqlite3
+
+# Uploads & Temp files
+Backend/uploads/
+uploads/
+
+# IDE / Editor settings
+.vscode/
+.idea/
+.DS_Store
