@@ -136,3 +136,47 @@ def delete_food(food_id):
         return jsonify({"status": "success", "message": "Food listing deleted successfully!"}), 200
     except Exception as e:
         return jsonify({"status": "error", "message": f"Delete failed: {str(e)}"}), 500
+
+
+@food_bp.route('/api/food/predict', methods=['POST'])
+def predict_surplus():
+    """
+    POST /api/food/predict
+    AI Surplus Food Waste Prediction based on event type, guest count, and day of week.
+    """
+    from ml.prediction import SurplusPredictionModel
+    data = request.get_json() or {}
+    day_of_week = data.get('day_of_week', 'Saturday')
+    event_type = data.get('event_type', 'Buffet')
+    estimated_guests = data.get('estimated_guests', 100)
+
+    try:
+        predictor = SurplusPredictionModel()
+        result = predictor.predict_surplus(day_of_week, event_type, estimated_guests)
+        return jsonify({
+            "status": "success",
+            "prediction": result
+        }), 200
+    except Exception as e:
+        return jsonify({"status": "error", "message": f"Prediction failed: {str(e)}"}), 500
+
+
+@food_bp.route('/api/food/classify', methods=['POST'])
+def classify_food_image():
+    """
+    POST /api/food/classify
+    AI Food Image Recognition & Freshness Inspection heuristic.
+    """
+    from ml.image_recognition import FoodImageRecognition
+    data = request.get_json() or {}
+    image_path = data.get('image_path', 'food_sample.jpg')
+
+    try:
+        result = FoodImageRecognition.classify_image(image_path)
+        return jsonify({
+            "status": "success",
+            "classification": result
+        }), 200
+    except Exception as e:
+        return jsonify({"status": "error", "message": f"Classification failed: {str(e)}"}), 500
+

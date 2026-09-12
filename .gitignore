@@ -25,3 +25,11 @@ uploads/
 .vscode/
 .idea/
 .DS_Store
+
+# Node & Frontend
+node_modules/
+Frontend/node_modules/
+dist/
+Frontend/dist/
+*.log
+
